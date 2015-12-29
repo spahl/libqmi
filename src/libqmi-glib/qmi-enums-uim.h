@@ -278,4 +278,56 @@ typedef enum {
     QMI_UIM_CARD_APPLICATION_PERSONALIZATION_FEATURE_UNKNOWN             = 11
 } QmiUimCardApplicationPersonalizationFeature;
 
+/*****************************************************************************/
+/* Helper enums for the 'QMI UIM Verify PIN' request/response */
+
+/**
+ * QmiUimPinId:
+ * @QMI_UIM_PIN_ID_UNKNOWN: Unknown.
+ * @QMI_UIM_PIN_ID_PIN1: PIN1.
+ * @QMI_UIM_PIN_ID_PIN2: PIN2.
+ * @QMI_UIM_PIN_ID_UPIN: Universal PIN.
+ * @QMI_UIM_PIN_ID_HIDDEN: Hidden.
+ *
+ * PIN ID.
+ */
+typedef enum {
+    QMI_UIM_PIN_ID_UNKNOWN = 0,
+    QMI_UIM_PIN_ID_PIN1    = 1,
+    QMI_UIM_PIN_ID_PIN2    = 2,
+    QMI_UIM_PIN_ID_UPIN    = 3,
+    QMI_UIM_PIN_ID_HIDDEN  = 4,
+} QmiUimPinId;
+
+/**
+ * QmiUimKeyReferenceId:
+ * @QMI_UIM_KEY_REFERENCE_ID_UNKNOWN: Unknown.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_1: PIN application 1.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_2: PIN application 2.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_3: PIN application 3.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_4: PIN application 4.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_5: PIN application 5.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_6: PIN application 6.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_7: PIN application 7.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_8: PIN application 8.
+ * @QMI_UIM_KEY_REFERENCE_ID_PIN_UPIN: PIN Universal PIN.
+ *
+ * Key reference ID.
+ *
+ * See section "Access Condition Mapping" (9.5.1) in "ETSI TS 102 221: Smart
+ * Cards: UICC-Terminal Interface; Physical and Logical Characteristics"
+ */
+typedef enum {
+    QMI_UIM_KEY_REFERENCE_ID_UNKNOWN    = 0x00,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_1 = 0x01,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_2 = 0x02,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_3 = 0x03,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_4 = 0x04,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_5 = 0x05,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_6 = 0x06,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_7 = 0x07,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_APPL_8 = 0x08,
+    QMI_UIM_KEY_REFERENCE_ID_PIN_UPIN   = 0x11,
+} QmiUimKeyReferenceId;
+
 #endif /* _LIBQMI_GLIB_QMI_ENUMS_UIM_H_ */
