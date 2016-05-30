@@ -175,6 +175,12 @@ load_profile ()
         else
             echo "    qmi-over-mbim: no"
         fi
+
+        if [ -n "$FCC_AUTH" ]; then
+            echo "    fcc auth: $FCC_AUTH"
+        else
+            echo "    fcc auth: unset"
+        fi
     else
         echo "Profile at '$PROFILE_FILE' not found..."
     fi
@@ -337,6 +343,10 @@ start_network ()
     if [ -n "$PDH" ]; then
         echo "error: cannot re-start network, PDH already exists" 1>&2
         exit 3
+    fi
+
+    if [ "$FCC_AUTH" = "yes" ]; then
+        qmicli -d $DEVICE --dms-set-fcc-authentication $PROXY_OPT $MBIM_OPT
     fi
 
     if [ "$QMI_OVER_MBIM" != "yes" ]; then
